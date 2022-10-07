@@ -9,6 +9,7 @@ export function TestPage(props) {
     return (
         <div className="mx-3">
             <Persons persons={persons} title="alle personen" showSchool={true}/>
+            <Persons persons={persons.filter(p=>p.school==="ANT")} title="Antwerpen"/>
 
         </div>
     );
