@@ -20,6 +20,8 @@ export function schoolsFromPersonData(persons) {
     const uniqueSchoolNames = [...new Set(persons.map(p => p.school))];
     return uniqueSchoolNames.map(c => ({
         name: c,
-        subscribedStudents: numberOfPersonsForSchool(persons, c)
+        subscribedStudents: numberOfPersonsForSchool(persons, c),
+        students: persons.filter(p=> p.school===c).map(p=>p.name)
+
     }));
 }
