@@ -11,3 +11,15 @@ export function citiesFromPersonData(persons) {
         numberOfPersons: numberOfPersonsForCity(persons, c)
     }));
 }
+
+function numberOfPersonsForSchool(persons, school) {
+    return persons.filter(p => p.school === school).length;
+}
+
+export function schoolsFromPersonData(persons) {
+    const uniqueSchoolNames = [...new Set(persons.map(p => p.school))];
+    return uniqueSchoolNames.map(c => ({
+        name: c,
+        subscribedStudents: numberOfPersonsForSchool(persons, c)
+    }));
+}
